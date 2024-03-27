@@ -1,2 +1,3 @@
 (library
- (name printing_rule_viewer))
+ (name printing_rule_viewer)
+ (libraries coq-core.sysinit coq-core.stm))

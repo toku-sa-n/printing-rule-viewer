@@ -4,6 +4,8 @@ let test_list_unparsing () =
     (Printing_rule_viewer.unparse "Theorem foo:1=1.")
     [ [ "Box" ] ]
 
+let () = Printing_rule_viewer.init ()
+
 let () =
   Alcotest.run "Printing rule viewer"
     [
