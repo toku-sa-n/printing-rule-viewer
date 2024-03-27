@@ -1,4 +1,5 @@
 let unparse _ = [ [ "Box" ] ]
+let extract_notations_from_expressions _ = [ "_ = _" ]
 
 let init () =
   let _ =
