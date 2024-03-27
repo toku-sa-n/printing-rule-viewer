@@ -7,7 +7,11 @@ let init () =
       ~parse_extra:(fun _ -> ((), []))
       ~usage:
         Boot.Usage.
-          { executable_name = "coqfmt"; extra_args = ""; extra_options = "" }
+          {
+            executable_name = "printing_rule_viewer";
+            extra_args = "";
+            extra_options = "";
+          }
       ()
     |> fst |> Coqinit.init_runtime
   in
