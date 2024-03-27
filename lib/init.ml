@@ -1,5 +1,3 @@
-let extract_notations_from_expressions _ = [ "_ = _" ]
-
 let init () =
   let _ =
     Coqinit.init_ocaml ();
