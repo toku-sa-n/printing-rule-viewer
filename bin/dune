@@ -1,0 +1,4 @@
+(executable
+ (public_name printing_rule_viewer)
+ (name main)
+ (libraries printing_rule_viewer))
