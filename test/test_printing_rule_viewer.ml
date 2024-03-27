@@ -14,13 +14,13 @@ let test_extract_notations_from_expressions () =
 let () = Printing_rule_viewer.init ()
 
 let () =
+  let open Alcotest in
   Alcotest.run "Printing rule viewer"
     [
       ( "test suite",
         [
-          Alcotest.test_case "Parsing an equality notation" `Quick
-            test_list_unparsing;
-          Alcotest.test_case "Extract notations from expressions" `Quick
+          test_case "Parsing an equality notation" `Quick test_list_unparsing;
+          test_case "Extract notations from expressions" `Quick
             test_extract_notations_from_expressions;
         ] );
     ]
