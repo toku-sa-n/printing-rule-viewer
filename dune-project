@@ -19,7 +19,12 @@
  (name printing_rule_viewer)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml dune)
+ (depends
+  (alcotest :with-test)
+  (coq
+   (= 8.19.0))
+  ocaml
+  dune)
  (tags
   (topics "to describe" your project)))
 
