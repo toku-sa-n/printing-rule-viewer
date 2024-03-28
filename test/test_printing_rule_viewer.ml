@@ -35,6 +35,13 @@ let test_cases_for_extract_printing_rules_from_expressions =
         ( "_ = _",
           [ "UnpBox"; "UnpMetaVar"; "UnpTerminal"; "UnpCut"; "UnpMetaVar" ] );
       ];
+    test_case "From multiple ASTs" "Theorem foo:1=1. Abort. Theorem bar:1=1."
+      [
+        ( "_ = _",
+          [ "UnpBox"; "UnpMetaVar"; "UnpTerminal"; "UnpCut"; "UnpMetaVar" ] );
+        ( "_ = _",
+          [ "UnpBox"; "UnpMetaVar"; "UnpTerminal"; "UnpCut"; "UnpMetaVar" ] );
+      ];
   ]
 
 let () = Printing_rule_viewer.Init.init ()
