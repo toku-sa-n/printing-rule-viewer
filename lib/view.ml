@@ -1,11 +1,5 @@
 open Sexplib.Sexp
 
-let rec find_sexp cond = function
-  | Atom x -> if cond (Atom x) then [ Atom x ] else []
-  | List xs ->
-      let tail = List.concat_map (find_sexp cond) xs in
-      if cond (List xs) then List xs :: tail else tail
-
 let extract_cnotations ast =
   let cond = function
     | List
@@ -22,7 +16,7 @@ let extract_cnotations ast =
   in
 
   Serlib.Ser_vernacexpr.sexp_of_vernac_control ast
-  |> find_sexp cond
+  |> Sexp.find_sexp_recursively cond
   |> List.map Serlib.Ser_constrexpr.constr_expr_of_sexp
   |> List.map (fun x -> x.CAst.v)
   |> List.map extract_notations
