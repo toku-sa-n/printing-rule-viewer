@@ -1,3 +1,8 @@
 (library
  (name printing_rule_viewer)
- (libraries coq-core.sysinit coq-core.stm coq-serapi.serlib sexplib))
+ (libraries
+  coq-core.plugins.ltac ; Without this, "Warning, feedback ..." error is raised.
+  coq-core.sysinit
+  coq-core.stm
+  coq-serapi.serlib
+  sexplib))
