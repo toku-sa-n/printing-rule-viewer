@@ -28,3 +28,5 @@ let extract_notations_from_expressions code =
     | Some ast -> extract_cnotations ast :: f parser
   in
   f (Astparser.make code) |> List.concat
+
+let extract_printing_rules_from_expressions _code = [ ("_ = _", [ "Block" ]) ]
