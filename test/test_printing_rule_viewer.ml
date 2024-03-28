@@ -29,7 +29,10 @@ let test_cases_for_extract_printing_rules_from_expressions =
     Alcotest.test_case msg `Quick (check_f input expected)
   in
 
-  [ test_case "From an AST" "Theorem foo:1=1." [ ("_ = _", [ "Block" ]) ] ]
+  [
+    test_case "From an AST" "Theorem foo:1=1."
+      [ ("_ = _", [ "UnpBox"; "UnpMetaVar"; "UnpMetaVar" ]) ];
+  ]
 
 let () = Printing_rule_viewer.Init.init ()
 
