@@ -23,8 +23,8 @@
   (alcotest :with-test)
   (coq
    (= 8.19.0))
-  ocaml
-  dune)
+  dune
+  ocaml)
  (tags
   (topics "to describe" your project)))
 
