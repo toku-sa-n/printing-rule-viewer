@@ -31,7 +31,10 @@ let test_cases_for_extract_printing_rules_from_expressions =
 
   [
     test_case "From an AST" "Theorem foo:1=1."
-      [ ("_ = _", [ "UnpBox"; "UnpMetaVar"; "UnpMetaVar" ]) ];
+      [
+        ( "_ = _",
+          [ "UnpBox"; "UnpMetaVar"; "UnpTerminal"; "UnpCut"; "UnpMetaVar" ] );
+      ];
   ]
 
 let () = Printing_rule_viewer.Init.init ()

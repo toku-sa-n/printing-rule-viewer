@@ -37,8 +37,9 @@ let extract_notations_and_printing_rules ast =
     | _ -> failwith "unreachable"
   in
 
-  let map_to_string = function
-    | Ppextend.UnpBox _ -> [ "UnpBox" ]
+  let rec map_to_string = function
+    | Ppextend.UnpBox (_, xs) ->
+        "UnpBox" :: List.concat (List.map (fun (_, x) -> map_to_string x) xs)
     | Ppextend.UnpMetaVar _ -> [ "UnpMetaVar" ]
     | Ppextend.UnpBinderMetaVar _ -> [ "UnpBinderMetaVar" ]
     | Ppextend.UnpCut _ -> [ "UnpCut" ]
