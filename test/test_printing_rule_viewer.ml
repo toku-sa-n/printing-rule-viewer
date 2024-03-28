@@ -14,6 +14,7 @@ let test_cases_for_extract_notations_from_expressions =
     test_case "From an AST" "Theorem foo:1=1." [ "_ = _" ];
     test_case "From multiple ASTs" "Theorem foo:1=1. Abort. Theorem bar:1=1."
       [ "_ = _"; "_ = _" ];
+    test_case "Nested" "Theorem foo:1=1->1=1." [ "_ -> _"; "_ = _"; "_ = _" ];
   ]
 
 let () = Printing_rule_viewer.Init.init ()

@@ -1,9 +1,10 @@
 open Sexplib.Sexp
 
 let rec find_sexp cond = function
-  | x when cond x -> [ x ]
-  | Atom _ -> []
-  | List xs -> List.concat_map (find_sexp cond) xs
+  | Atom x -> if cond (Atom x) then [ Atom x ] else []
+  | List xs ->
+      let tail = List.concat_map (find_sexp cond) xs in
+      if cond (List xs) then List xs :: tail else tail
 
 let extract_cnotations ast =
   let cond = function
