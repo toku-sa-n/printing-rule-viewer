@@ -27,9 +27,9 @@ let extract_cnotations ast =
   |> List.map extract_notations
 
 let extract_notations_from_expressions code =
-  let f parser =
+  let rec f parser =
     match Astparser.next parser with
     | None -> []
-    | Some ast -> extract_cnotations ast
+    | Some ast -> extract_cnotations ast :: f parser
   in
-  f (Astparser.make code)
+  f (Astparser.make code) |> List.concat

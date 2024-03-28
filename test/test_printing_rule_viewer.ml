@@ -10,7 +10,11 @@ let test_cases_for_extract_notations_from_expressions =
     Alcotest.test_case msg `Quick (check_f input expected)
   in
 
-  [ test_case "From an AST" "Theorem foo:1=1." [ "_ = _" ] ]
+  [
+    test_case "From an AST" "Theorem foo:1=1." [ "_ = _" ];
+    test_case "From multiple ASTs" "Theorem foo:1=1. Abort. Theorem bar:1=1."
+      [ "_ = _"; "_ = _" ];
+  ]
 
 let () = Printing_rule_viewer.Init.init ()
 
